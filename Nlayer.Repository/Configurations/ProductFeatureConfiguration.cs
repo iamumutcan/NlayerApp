@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using Nlayer.Core;
-
+using Nlayer.Core.Model;
 
 namespace Nlayer.Repository.Configurations
 {
