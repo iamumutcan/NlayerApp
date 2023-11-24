@@ -5,6 +5,7 @@ using Nlayer.Core.DTOs;
 using Nlayer.Core.Model;
 using Nlayer.Core.Services;
 using Nlayer.Service.Services;
+using NLayer.API.Filters;
 
 namespace Nlayer.API.Controllers
 {
@@ -34,6 +35,7 @@ namespace Nlayer.API.Controllers
             return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200, productsDtos));
         }
         // GET /api/products/5
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
