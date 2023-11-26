@@ -62,9 +62,13 @@ namespace Nlayer.Caching
             throw new NotImplementedException();
         }
 
-        public Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductWithCategory()
+        public Task<List<ProductWithCategoryDto>> GetProductWithCategory()
         {
-            throw new NotImplementedException();
+            var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
+
+            var productsWithCategoryDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
+
+            return Task.FromResult(productsWithCategoryDto);
         }
 
         public Task RemoveAsync(Product entity)
