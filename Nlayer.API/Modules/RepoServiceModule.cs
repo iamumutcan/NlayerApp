@@ -8,6 +8,7 @@ using Nlayer.Repository;
 using Nlayer.Service.Mapping;
 using Nlayer.Service.Services;
 using System.Reflection;
+using Nlayer.Caching;
 
 namespace Nlayer.API.Modules
 {
@@ -32,6 +33,7 @@ namespace Nlayer.API.Modules
 
 
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
 
         }
     }
