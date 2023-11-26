@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Nlayer.Core.Repositories;
 using Nlayer.Core.Services;
 using Nlayer.Core.UnitOfWorks;
 using Nlayer.Service.Exceptions;
+using System.Linq.Expressions;
 
 namespace Nlayer.Service.Services
 {
@@ -39,7 +34,7 @@ namespace Nlayer.Service.Services
 
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
         {
-           return await _repository.AnyAsync(expression);
+            return await _repository.AnyAsync(expression);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
@@ -60,7 +55,7 @@ namespace Nlayer.Service.Services
 
         public async Task RemoveAsync(T entity)
         {
-           _repository.Remove(entity);
+            _repository.Remove(entity);
             await _unitOfWork.ComitAsync();
         }
 

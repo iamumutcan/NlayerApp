@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nlayer.Core.Model;
 using Nlayer.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nlayer.Repository.Repositories
 {
@@ -20,6 +15,6 @@ namespace Nlayer.Repository.Repositories
             return await _context.Categories.Include(x => x.Products).Where(x => x.Id == categoryId).SingleOrDefaultAsync();
         }
 
-       
+
     }
 }

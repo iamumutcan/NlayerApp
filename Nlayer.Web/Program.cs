@@ -1,5 +1,5 @@
-using Autofac.Extensions.DependencyInjection;
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Nlayer.Repository;
 using Nlayer.Service.Mapping;

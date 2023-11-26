@@ -4,12 +4,6 @@ using Nlayer.Core.Model;
 using Nlayer.Core.Repositories;
 using Nlayer.Core.Services;
 using Nlayer.Core.UnitOfWorks;
-using Nlayer.Repository.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nlayer.Service.Services
 {
@@ -33,6 +27,6 @@ namespace Nlayer.Service.Services
             return CustomResponseDto<CategoryWithProductsDto>.Success(200, categoryDto);
         }
 
-     
+
     }
 }

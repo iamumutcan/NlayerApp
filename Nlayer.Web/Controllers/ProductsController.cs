@@ -20,28 +20,28 @@ namespace Nlayer.Web.Controllers
             _mapper = mapper;
         }
 
-        public async Task< IActionResult >Index()
+        public async Task<IActionResult> Index()
         {
             return View(await _services.GetProductWithCategory());
         }
 
         public async Task<IActionResult> Save()
         {
-            var categories=_categoryService.GetAllAsync();
-            var categoryiesDto= _mapper.Map<List<CategoryDto>>(categories);
+            var categories = await _categoryService.GetAllAsync();
+            var categoryiesDto = _mapper.Map<List<CategoryDto>>(categories.ToList());
             ViewBag.Categories = new SelectList(categoryiesDto, "Id", "Name");
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 await _services.AddAsync(_mapper.Map<Product>(productDto));
                 return RedirectToAction(nameof(Index));
             }
-            var categories = _categoryService.GetAllAsync();
-            var categoryiesDto = _mapper.Map<List<CategoryDto>>(categories);
+            var categories = await _categoryService.GetAllAsync();
+            var categoryiesDto = _mapper.Map<List<CategoryDto>>(categories.ToList());
             ViewBag.Categories = new SelectList(categoryiesDto, "Id", "Name");
             return View();
         }

@@ -5,18 +5,13 @@ using Nlayer.Core.Model;
 using Nlayer.Core.Repositories;
 using Nlayer.Core.Services;
 using Nlayer.Core.UnitOfWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nlayer.Caching
 {
     public class ProductServiceWithCaching : IProductService
     {
-        private readonly string CacheProductKey="productsCache";
+        private readonly string CacheProductKey = "productsCache";
         private readonly IMapper _mapper;
         private readonly IMemoryCache _memoryCache;
         private readonly IProductRepository _repository;

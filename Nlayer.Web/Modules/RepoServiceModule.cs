@@ -2,9 +2,9 @@
 using Nlayer.Core.Repositories;
 using Nlayer.Core.Services;
 using Nlayer.Core.UnitOfWorks;
+using Nlayer.Repository;
 using Nlayer.Repository.Repositories;
 using Nlayer.Repository.UnitOfWorks;
-using Nlayer.Repository;
 using Nlayer.Service.Mapping;
 using Nlayer.Service.Services;
 using System.Reflection;
