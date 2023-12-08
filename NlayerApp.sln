@@ -3,17 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlayer.Core", "Nlayer.Core\Nlayer.Core.csproj", "{8050BCC3-DFE8-4E04-AD51-EA510995B802}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nlayer.Core", "Nlayer.Core\Nlayer.Core.csproj", "{8050BCC3-DFE8-4E04-AD51-EA510995B802}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlayer.Repository", "Nlayer.Repository\Nlayer.Repository.csproj", "{3F664402-E6D4-4FD3-9C71-D6390FBB2D1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nlayer.Repository", "Nlayer.Repository\Nlayer.Repository.csproj", "{3F664402-E6D4-4FD3-9C71-D6390FBB2D1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlayer.Service", "Nlayer.Service\Nlayer.Service.csproj", "{95FCB1F2-54D7-428A-9281-6FA346A19B85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nlayer.Service", "Nlayer.Service\Nlayer.Service.csproj", "{95FCB1F2-54D7-428A-9281-6FA346A19B85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlayer.API", "Nlayer.API\Nlayer.API.csproj", "{BFF32B24-828C-4382-A7AF-FE12A953ACDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nlayer.API", "Nlayer.API\Nlayer.API.csproj", "{BFF32B24-828C-4382-A7AF-FE12A953ACDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlayer.Web", "Nlayer.Web\Nlayer.Web.csproj", "{6FEE23D2-81B3-4E56-9640-C4665F8D0DE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nlayer.Web", "Nlayer.Web\Nlayer.Web.csproj", "{6FEE23D2-81B3-4E56-9640-C4665F8D0DE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlayer.Caching", "Nlayer.Caching\Nlayer.Caching.csproj", "{ED5577BE-B4E0-4CEF-8589-43E0E91728B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nlayer.Caching", "Nlayer.Caching\Nlayer.Caching.csproj", "{ED5577BE-B4E0-4CEF-8589-43E0E91728B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{205F20C6-82B6-4E34-8823-2A05C09D5C77}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Users\UCY\source\repos\NlayerApp - Kopya (2)\Ports.txt = ..\..\Users\UCY\source\repos\NlayerApp - Kopya (2)\Ports.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
