@@ -14,6 +14,8 @@ namespace Nlayer.Repository
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
 
         public override int SaveChanges()
         {
