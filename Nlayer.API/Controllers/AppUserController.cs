@@ -28,6 +28,17 @@ namespace Nlayer.API.Controllers
             return CreateActionResult(CustomResponseDto<AppUserDto>.Success(201, objsDto));
         }
 
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(AppUserLoginDto objDto)
+        {
+            var appUser = _mapper.Map<AppUser>(objDto);
+
+            var addedUser = await _appUserService.UserLoginAsync(appUser.Email, appUser.Password);
+            var addedUserDto = _mapper.Map<AppUserDto>(addedUser);
+            var addedUser2 = await _appUserService.UserLoginAsync(appUser.Email, appUser.Password);
+            return CreateActionResult(CustomResponseDto<AppUserDto>.Success(201, addedUserDto));
+        }
+
 
     }
 }

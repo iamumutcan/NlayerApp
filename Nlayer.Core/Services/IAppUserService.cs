@@ -1,4 +1,5 @@
-﻿using Nlayer.Core.Model;
+﻿using Nlayer.Core.DTOs;
+using Nlayer.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,8 @@ namespace Nlayer.Core.Services
 {
     public interface IAppUserService:IService<AppUser>
     {
+        Task<AppUserDto> UserLoginAsync(string email, string password);
+
+
     }
 }
