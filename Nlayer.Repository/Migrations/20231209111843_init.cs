@@ -1,13 +1,32 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Nlayer.Repository.Migrations
 {
-    public partial class initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AppUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RoleId = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppUsers", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
@@ -21,6 +40,19 @@ namespace Nlayer.Repository.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserRoles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoleName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserRoles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,11 +121,11 @@ namespace Nlayer.Repository.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "Name", "Price", "Stock", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 11, 17, 1, 13, 14, 883, DateTimeKind.Local).AddTicks(3331), "Kalem 1", 100m, 20, null },
-                    { 2, 1, new DateTime(2023, 11, 17, 1, 13, 14, 883, DateTimeKind.Local).AddTicks(3342), "Kalem 2", 200m, 30, null },
-                    { 3, 1, new DateTime(2023, 11, 17, 1, 13, 14, 883, DateTimeKind.Local).AddTicks(3343), "Kalem 3", 600m, 60, null },
-                    { 4, 2, new DateTime(2023, 11, 17, 1, 13, 14, 883, DateTimeKind.Local).AddTicks(3344), "Kitap 1", 600m, 60, null },
-                    { 5, 2, new DateTime(2023, 11, 17, 1, 13, 14, 883, DateTimeKind.Local).AddTicks(3345), "Kitap 2", 6600m, 320, null }
+                    { 1, 1, new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7622), "Kalem 1", 100m, 20, null },
+                    { 2, 1, new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7631), "Kalem 2", 200m, 30, null },
+                    { 3, 1, new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7632), "Kalem 3", 600m, 60, null },
+                    { 4, 2, new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7632), "Kitap 1", 600m, 60, null },
+                    { 5, 2, new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7633), "Kitap 2", 6600m, 320, null }
                 });
 
             migrationBuilder.InsertData(
@@ -121,7 +153,13 @@ namespace Nlayer.Repository.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AppUsers");
+
+            migrationBuilder.DropTable(
                 name: "ProductFeatures");
+
+            migrationBuilder.DropTable(
+                name: "UserRoles");
 
             migrationBuilder.DropTable(
                 name: "Products");

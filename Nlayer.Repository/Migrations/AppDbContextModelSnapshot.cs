@@ -39,18 +39,16 @@ namespace Nlayer.Repository.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("UserRoleId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserRoleId");
 
                     b.ToTable("AppUsers");
                 });
@@ -138,7 +136,7 @@ namespace Nlayer.Repository.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 9, 1, 24, 30, 428, DateTimeKind.Local).AddTicks(726),
+                            CreatedDate = new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7622),
                             Name = "Kalem 1",
                             Price = 100m,
                             Stock = 20
@@ -147,7 +145,7 @@ namespace Nlayer.Repository.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 9, 1, 24, 30, 428, DateTimeKind.Local).AddTicks(737),
+                            CreatedDate = new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7631),
                             Name = "Kalem 2",
                             Price = 200m,
                             Stock = 30
@@ -156,7 +154,7 @@ namespace Nlayer.Repository.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 12, 9, 1, 24, 30, 428, DateTimeKind.Local).AddTicks(739),
+                            CreatedDate = new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7632),
                             Name = "Kalem 3",
                             Price = 600m,
                             Stock = 60
@@ -165,7 +163,7 @@ namespace Nlayer.Repository.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 9, 1, 24, 30, 428, DateTimeKind.Local).AddTicks(741),
+                            CreatedDate = new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7632),
                             Name = "Kitap 1",
                             Price = 600m,
                             Stock = 60
@@ -174,7 +172,7 @@ namespace Nlayer.Repository.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 12, 9, 1, 24, 30, 428, DateTimeKind.Local).AddTicks(743),
+                            CreatedDate = new DateTime(2023, 12, 9, 14, 18, 42, 854, DateTimeKind.Local).AddTicks(7633),
                             Name = "Kitap 2",
                             Price = 6600m,
                             Stock = 320
@@ -243,15 +241,6 @@ namespace Nlayer.Repository.Migrations
                     b.ToTable("UserRoles");
                 });
 
-            modelBuilder.Entity("Nlayer.Core.Model.AppUser", b =>
-                {
-                    b.HasOne("Nlayer.Core.Model.UserRole", "UserRole")
-                        .WithMany("AppUsers")
-                        .HasForeignKey("UserRoleId");
-
-                    b.Navigation("UserRole");
-                });
-
             modelBuilder.Entity("Nlayer.Core.Model.Product", b =>
                 {
                     b.HasOne("Nlayer.Core.Model.Category", "Category")
@@ -282,11 +271,6 @@ namespace Nlayer.Repository.Migrations
             modelBuilder.Entity("Nlayer.Core.Model.Product", b =>
                 {
                     b.Navigation("ProductFeature");
-                });
-
-            modelBuilder.Entity("Nlayer.Core.Model.UserRole", b =>
-                {
-                    b.Navigation("AppUsers");
                 });
 #pragma warning restore 612, 618
         }
