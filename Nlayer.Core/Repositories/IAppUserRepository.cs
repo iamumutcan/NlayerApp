@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Nlayer.Core.Repositories
 {
-    public interface IAppUserRepository:IGenericRepository<AppUser>
+    public interface IAppUserRepository:IGenericRepository<User>
     {
     }
 }

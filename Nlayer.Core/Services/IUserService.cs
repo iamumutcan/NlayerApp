@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Nlayer.Core.Services
 {
-    public interface IAppUserService:IService<AppUser>
+    public interface IUserService:IService<User>
     {
-        Task<AppUserDto> UserLoginAsync(string email, string password);
+        Task<UserDto> UserLoginAsync(string email, string password);
 
 
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Nlayer.Repository.Repositories
 {
-    public class AppUserRepository : GenericRepository<AppUser>,IAppUserRepository
+    public class AppUserRepository : GenericRepository<User>,IAppUserRepository
     {
         public AppUserRepository(AppDbContext context) : base(context)
         {

@@ -10,10 +10,10 @@ namespace Nlayer.API.Controllers
 
     public class AppUserController : CustomBaseController
     {
-        private readonly IAppUserService _appUserService;
+        private readonly IUserService _appUserService;
         private readonly IMapper _mapper;
 
-        public AppUserController(IAppUserService appUserService, IMapper mapper)
+        public AppUserController(IUserService appUserService, IMapper mapper)
         {
             _appUserService = appUserService;
             _mapper = mapper;
@@ -21,22 +21,22 @@ namespace Nlayer.API.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Save(AppUserDto objDto)
+        public async Task<IActionResult> Save(UserDto objDto)
         {
-            var obj = await _appUserService.AddAsync(_mapper.Map<AppUser>(objDto));
-            var objsDto = _mapper.Map<AppUserDto>(obj);
-            return CreateActionResult(CustomResponseDto<AppUserDto>.Success(201, objsDto));
+            var obj = await _appUserService.AddAsync(_mapper.Map<User>(objDto));
+            var objsDto = _mapper.Map<UserDto>(obj);
+            return CreateActionResult(CustomResponseDto<UserDto>.Success(201, objsDto));
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(AppUserLoginDto objDto)
         {
-            var appUser = _mapper.Map<AppUser>(objDto);
+            var appUser = _mapper.Map<User>(objDto);
 
             var addedUser = await _appUserService.UserLoginAsync(appUser.Email, appUser.Password);
-            var addedUserDto = _mapper.Map<AppUserDto>(addedUser);
+            var addedUserDto = _mapper.Map<UserDto>(addedUser);
             var addedUser2 = await _appUserService.UserLoginAsync(appUser.Email, appUser.Password);
-            return CreateActionResult(CustomResponseDto<AppUserDto>.Success(201, addedUserDto));
+            return CreateActionResult(CustomResponseDto<UserDto>.Success(201, addedUserDto));
         }
 
 

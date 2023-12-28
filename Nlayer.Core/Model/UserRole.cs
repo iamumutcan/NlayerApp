@@ -10,6 +10,6 @@ namespace Nlayer.Core.Model
     {
         public int Id { get; set; }
         public string RoleName { get; set; }
-       // public ICollection<AppUser> AppUsers { get; set; }
+        // public ICollection<AppUser> AppUsers { get; set; }
     }
 }

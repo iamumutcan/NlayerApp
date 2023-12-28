@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nlayer.Core.DTOs
 {
-    public class AppUserDto:BaseDto
+    public class UserDto:BaseDto
     {
         public string Username { get; set; }
         public string Email { get; set; }
